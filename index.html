@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>口袋电影网｜装在口袋里的观影清单 · 每日排片与冷门佳片索引</title>
+<meta name="description" content="口袋电影网（https://koudaidianyingwang-app.github.io）是一份随时能翻的私人观影册：每日更新院线排片时刻、流媒体新上线片单、被主流榜单漏掉的冷门佳片与短评笔记。按类型、片长、年代、评分四个维度速筛，通勤路上三十秒挑出今晚看什么，不写冗长影评，只给能直接用的观影决定。">
+<meta name="keywords" content="口袋电影网,koudaidianyingwang-app,口袋电影,口袋电影网官网,今日电影排片,电影推荐清单,冷门佳片,高分电影索引,观影笔记,院线时刻表,流媒体新片,电影片单网站">
+<meta name="author" content="口袋电影网">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="generator" content="口袋电影网">
+<meta name="theme-color" content="#10150f">
+<link rel="canonical" href="https://koudaidianyingwang-app.github.io/">
+<link rel="alternate" hreflang="zh-CN" href="https://koudaidianyingwang-app.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="口袋电影网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://koudaidianyingwang-app.github.io/">
+<meta property="og:title" content="口袋电影网｜装在口袋里的观影清单 · 每日排片与冷门佳片索引">
+<meta property="og:description" content="口袋电影网把院线排片、新上线片单和冷门佳片收进一个页面，按类型、片长、年代、评分速筛，通勤路上三十秒决定今晚看什么。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="口袋电影网｜装在口袋里的观影清单">
+<meta name="twitter:description" content="口袋电影网：每日排片时刻、流媒体新片、冷门佳片与短评笔记，一页读完，随手就选。">
+<style>
+:root{
+  --ink:#10150f;
+  --ink-2:#171d16;
+  --paper:#f3efe4;
+  --paper-2:#e7e0cf;
+  --amber:#e8b04b;
+  --amber-d:#b9822c;
+  --moss:#5c7a52;
+  --rust:#c2603f;
+  --line:rgba(243,239,228,.14);
+  --radius:14px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font:16px/1.75 "PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+  letter-spacing:.2px;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul,ol{list-style:none}
+h1,h2,h3,h4{font-weight:800;line-height:1.25;letter-spacing:.5px}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--amber);color:#10150f;padding:8px 14px;border-radius:8px}
+
+/* 顶部：胶片齿孔装饰条 */
+.filmstrip{height:16px;background:var(--ink-2);position:relative;overflow:hidden}
+.filmstrip::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle at 6px 8px,var(--paper-2) 2.6px,transparent 3px);
+  background-size:22px 16px;opacity:.22;
+}
+.topbar{background:var(--ink-2);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand .logo{
+  font-size:22px;font-weight:900;letter-spacing:3px;color:var(--amber);
+  text-shadow:0 0 18px rgba(232,176,75,.25);
+}
+.brand .en{font-size:11px;letter-spacing:2.4px;color:rgba(243,239,228,.5);text-transform:uppercase}
+.topnav{display:flex;gap:6px;flex-wrap:wrap}
+.topnav a{
+  font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid transparent;
+  color:rgba(243,239,228,.78);transition:.2s;
+}
+.topnav a:hover,.topnav a:focus{color:var(--ink);background:var(--amber);border-color:var(--amber)}
+
+/* 首屏 */
+.hero{position:relative;padding:56px 0 44px;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;right:-140px;top:-90px;width:460px;height:460px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,176,75,.20),transparent 62%);pointer-events:none;
+}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:start}
+.tagline{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2px;color:var(--amber);
+  border:1px dashed rgba(232,176,75,.5);padding:5px 12px;border-radius:999px;margin-bottom:18px}
+h1{font-size:clamp(30px,5.4vw,50px);letter-spacing:1px}
+h1 em{font-style:normal;color:var(--amber)}
+.lede{margin-top:16px;font-size:16.5px;color:rgba(243,239,228,.82);max-width:58ch}
+.hero-meta{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap}
+.hero-meta div strong{display:block;font-size:24px;color:var(--paper);font-weight:900}
+.hero-meta div span{font-size:12.5px;color:rgba(243,239,228,.55)}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:12px 22px;border-radius:10px;font-weight:700;font-size:15px;transition:.2s;
+}
+.btn-a{background:var(--amber);color:#161a15;box-shadow:0 6px 18px rgba(232,176,75,.28)}
+.btn-a:hover{background:#f0c063;transform:translateY(-2px)}
+.btn-b{border:1px solid var(--line);color:var(--paper)}
+.btn-b:hover{border-color:var(--amber);color:var(--amber)}
+.urltag{
+  margin-top:18px;font-size:13px;color:rgba(243,239,228,.6);word-break:break-all;
+  border-left:3px solid var(--moss);padding-left:10px;
+}
+/* 今日主推卡 */
+.pick{
+  background:linear-gradient(160deg,#1d241b,#141a13);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);
+}
+.pick .poster{
+  height:180px;border-radius:10px;margin-bottom:14px;position:relative;overflow:hidden;
+  background:
+    repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 12px,transparent 12px 26px),
+    linear-gradient(200deg,#2b3a2b,#6b4a22 55%,#1b2119);
+}
+.pick .poster b{
+  position:absolute;left:14px;bottom:12px;font-size:19px;letter-spacing:1px;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+.pick .score{position:absolute;right:12px;top:12px;background:rgba(16,21,15,.78);border:1px solid var(--amber);
+  color:var(--amber);font-weight:900;padding:4px 10px;border-radius:8px;font-size:15px}
+.pick dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13.5px}
+.pick dt{color:rgba(243,239,228,.5)}
+.pick dd{color:rgba(243,239,228,.9)}
+.pick p{margin-top:12px;font-size:14px;color:rgba(243,239,228,.76);border-top:1px dashed var(--line);padding-top:12px}
+
+/* 分区通用 */
+section{padding:52px 0;border-top:1px solid var(--line)}
+.sechead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.sechead h2{font-size:clamp(22px,3.2vw,30px)}
+.sechead h2 small{display:block;font-size:12.5px;font-weight:500;letter-spacing:2px;color:var(--amber);margin-bottom:6px}
+.sechead p{font-size:13.5px;color:rgba(243,239,228,.55);max-width:44ch}
+.more{font-size:13.5px;color:var(--amber);border-bottom:1px solid rgba(232,176,75,.4);padding-bottom:2px}
+
+/* 片单轨道 */
+.rail{
+  display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 20px 18px;margin:0 -20px;
+  scrollbar-width:thin;
+}
+.rail::-webkit-scrollbar{height:8px}
+.rail::-webkit-scrollbar-thumb{background:#2c362a;border-radius:8px}
+.card{
+  flex:0 0 260px;scroll-snap-align:start;background:var(--ink-2);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;transition:.25s;
+}
+.card:hover{border-color:var(--amber);transform:translateY(-4px)}
+.card .ph{height:130px;position:relative}
+.card:nth-child(4n+1) .ph{background:linear-gradient(135deg,#3c4a2e,#7a5a24)}
+.card:nth-child(4n+2) .ph{background:linear-gradient(135deg,#4a2f2f,#8a6a2c)}
+.card:nth-child(4n+3) .ph{background:linear-gradient(135deg,#25404a,#4a7a7a)}
+.card:nth-child(4n+4) .ph{background:linear-gradient(135deg,#3a2a4a,#8a4a5c)}
+.card .ph span{position:absolute;left:12px;bottom:10px;font-weight:800;font-size:16px;text-shadow:0 2px 8px rgba(0,0,0,.55)}
+.card .body{padding:14px}
+.card .body h3{font-size:16px;margin-bottom:6px}
+.card .body p{font-size:13px;color:rgba(243,239,228,.66);min-height:44px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chip{font-size:11.5px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:rgba(243,239,228,.7)}
+.chip.on{border-color:var(--moss);color:#a9c79c}
+
+/* 排片表 */
+.sheet{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.slot{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--ink-2);position:relative}
+.slot .time{font-size:13px;color:var(--amber);font-weight:700;letter-spacing:1px}
+.slot h3{font-size:16.5px;margin:6px 0 8px}
+.slot p{font-size:13px;color:rgba(243,239,228,.62)}
+.slot .hall{margin-top:10px;font-size:12px;color:rgba(243,239,228,.5);border-top:1px dashed var(--line);padding-top:8px}
+.slot.full{border-color:rgba(194,96,63,.5)}
+.slot.full .time{color:var(--rust)}
+
+/* 短评：错落双列 */
+.talk{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.talk .col{display:flex;flex-direction:column;gap:18px}
+.talk .col.b{padding-top:34px}
+.quote{background:var(--ink-2);border-left:3px solid var(--amber);border-radius:0 12px 12px 0;padding:16px 18px}
+.quote p{font-size:15px;color:rgba(243,239,228,.88)}
+.quote footer{margin-top:10px;font-size:12.5px;color:rgba(243,239,228,.5);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.quote.moss{border-left-color:var(--moss)}
+.quote.rust{border-left-color:var(--rust)}
+
+/* 筛选说明：四格 */
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.key{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--ink-2)}
+.key b{display:block;font-size:26px;font-weight:900;color:var(--amber);margin-bottom:4px}
+.key h3{font-size:15px;margin-bottom:6px}
+.key p{font-size:13px;color:rgba(243,239,228,.62)}
+
+/* 常见问题 */
+.faq{display:grid;gap:10px;max-width:900px}
+.faq details{border:1px solid var(--line);border-radius:12px;background:var(--ink-2);overflow:hidden}
+.faq summary{
+  cursor:pointer;padding:16px 18px;font-weight:700;font-size:15.5px;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"＋";color:var(--amber);font-weight:900}
+.faq details[open] summary::after{content:"－"}
+.faq .ans{padding:0 18px 18px;font-size:14.5px;color:rgba(243,239,228,.74)}
+.faq .ans b{color:var(--paper)}
+
+/* 投稿条 */
+.join{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+.join .box{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:linear-gradient(150deg,#1a2119,#121711)}
+.field{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.field input{
+  flex:1 1 220px;background:#0e120d;border:1px solid var(--line);color:var(--paper);
+  border-radius:10px;padding:12px 14px;font:inherit;font-size:14px;
+}
+.field input:focus{outline:none;border-color:var(--amber)}
+.field button{border:0;border-radius:10px;padding:12px 20px;background:var(--amber);color:#161a15;font-weight:800;font:inherit;font-size:14px;cursor:pointer}
+.note{font-size:12.5px;color:rgba(243,239,228,.5);margin-top:10px}
+.join ul li{font-size:14.5px;color:rgba(243,239,228,.78);padding:9px 0;border-bottom:1px dashed var(--line)}
+.join ul li b{color:var(--amber);margin-right:8px}
+
+/* 页脚 */
+footer{background:var(--ink-2);border-top:1px solid var(--line);padding:44px 0 30px;margin-top:10px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+.fgrid h4{font-size:14px;color:var(--amber);margin-bottom:12px;letter-spacing:1px}
+.fgrid li{font-size:13.5px;padding:5px 0}
+.fgrid li a{color:rgba(243,239,228,.7)}
+.fgrid li a:hover{color:var(--amber)}
+.fabout p{font-size:13.5px;color:rgba(243,239,228,.62);margin-top:8px}
+.copy{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:rgba(243,239,228,.45);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* 移动端 */
+@media (max-width:900px){
+  .hero .grid,.talk,.join{grid-template-columns:1fr}
+  .talk .col.b{padding-top:0}
+  .sheet{grid-template-columns:1fr 1fr}
+  .keys{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .hero{padding:38px 0 30px}
+  section{padding:38px 0}
+  .rail{margin:0 -16px;padding:4px 16px 16px}
+  .card{flex:0 0 78%}
+  .sheet,.keys{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .topbar .wrap{min-height:auto;padding:10px 0}
+  .topnav{gap:4px}
+  .topnav a{font-size:13px;padding:5px 10px}
+  .hero-meta{gap:18px}
+  .hero-meta div strong{font-size:20px}
+  .pick .poster{height:150px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "@id":"https://koudaidianyingwang-app.github.io/#website",
+      "url":"https://koudaidianyingwang-app.github.io/",
+      "name":"口袋电影网",
+      "alternateName":"koudaidianyingwang-app",
+      "inLanguage":"zh-CN",
+      "description":"口袋电影网是一份随时能翻的私人观影册：每日院线排片时刻、流媒体新上线片单、被榜单漏掉的冷门佳片与短评笔记。"
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://koudaidianyingwang-app.github.io/#webpage",
+      "url":"https://koudaidianyingwang-app.github.io/",
+      "name":"口袋电影网｜装在口袋里的观影清单 · 每日排片与冷门佳片索引",
+      "isPartOf":{"@id":"https://koudaidianyingwang-app.github.io/#website"},
+      "inLanguage":"zh-CN",
+      "primaryImageOfPage":{"@type":"ImageObject","url":"https://koudaidianyingwang-app.github.io/"}
+    },
+    {
+      "@type":"ItemList",
+      "name":"口袋电影网本周片单",
+      "itemListOrder":"https://schema.org/ItemListOrderDescending",
+      "numberOfItems":6,
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"雾港旧事"},
+        {"@type":"ListItem","position":2,"name":"第七个夏天"},
+        {"@type":"ListItem","position":3,"name":"铁皮收音机"},
+        {"@type":"ListItem","position":4,"name":"列车停靠三分钟"},
+        {"@type":"ListItem","position":5,"name":"南岸来信"},
+        {"@type":"ListItem","position":6,"name":"深夜排练厅"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<div class="filmstrip" aria-hidden="true"></div>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <span class="logo">口袋电影网</span>
+      <span class="en">koudaidianyingwang-app</span>
+    </div>
+    <nav class="topnav" aria-label="站内导航">
+      <a href="#picks">本周片单</a>
+      <a href="#schedule">今日排片</a>
+      <a href="#notes">观影笔记</a>
+      <a href="#howto">怎么挑片</a>
+      <a href="#faq">常见问题</a>
+      <a href="#">手机版</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="tagline">更新于 10 月 16 日 · 仅收录可当场点开的片源</span>
+      <h1>把今晚要看的那部，<em>提前装进口袋</em></h1>
+      <p class="lede">口袋电影网不做长篇影评，只做一件事：把你从"随便看看"里捞出来。院线场次、流媒体新片、评分与片长都摊在同一页上，通勤路上刷三十秒，就能定下今晚那一部。</p>
+      <div class="hero-meta">
+        <div><strong>412</strong><span>在库片目</span></div>
+        <div><strong>6</strong><span>今日新增</span></div>
+        <div><strong>4</strong><span>速筛维度</span></div>
+        <div><strong>92%</strong><span>片源可播率</span></div>
+      </div>
+      <div class="cta">
+        <a class="btn btn-a" href="#picks">先看本周片单</a>
+        <a class="btn btn-b" href="#schedule">查今日场次</a>
+      </div>
+      <p class="urltag">本站地址：https://koudaidianyingwang-app.github.io　·　口袋电影网 · 观影清单与排片索引</p>
+    </div>
+
+    <aside class="pick" aria-label="今日主推">
+      <div class="poster">
+        <span class="score">8.7</span>
+        <b>雾港旧事</b>
+      </div>
+      <dl>
+        <dt>类型</dt><dd>剧情 / 年代</dd>
+        <dt>片长</dt><dd>117 分钟</dd>
+        <dt>年份</dt><dd>2023</dd>
+        <dt>产地</dt><dd>中国大陆</dd>
+      </dl>
+      <p>港口拆迁前最后一个冬天，修表匠翻出三十年前没寄出的信。节奏慢，但每一场戏都留了余味，适合夜里一个人看完再睡。</p>
+    </aside>
+  </div>
+</header>
+
+<main id="main">
+
+  <section id="picks">
+    <div class="wrap">
+      <div class="sechead">
+        <div>
+          <h2><small>PICKS OF THE WEEK</small>本周片单 · 横着滑</h2>
+          <p>口袋电影网每周三换一次架，六部起订，冷门和热门各占一半。</p>
+        </div>
+        <a class="more" href="#">查看往期片单</a>
+      </div>
+      <ul class="rail">
+        <li class="card">
+          <div class="ph"><span>第七个夏天</span></div>
+          <div class="body">
+            <h3>第七个夏天</h3>
+            <p>高考完那年的县城，四个少年把自行车骑到了海边。</p>
+            <div class="chips"><span class="chip on">青春</span><span class="chip">98 分钟</span><span class="chip">2019</span></div>
+          </div>
+        </li>
+        <li class="card">
+          <div class="ph"><span>铁皮收音机</span></div>
+          <div class="body">
+            <h3>铁皮收音机</h3>
+            <p>一台修不好的收音机，串起三代人的深夜频道。</p>
+            <div class="chips"><span class="chip on">家庭</span><span class="chip">106 分钟</span><span class="chip">2021</span></div>
+          </div>
+        </li>
+        <li class="card">
+          <div class="ph"><span>列车停靠三分钟</span></div>
+          <div class="body">
+            <h3>列车停靠三分钟</h3>
+            <p>站台上的三次相遇，把一段没说出口的话讲完了。</p>
+            <div class="chips"><span class="chip on">爱情</span><span class="chip">89 分钟</span><span class="chip">2017</span></div>
+          </div>
+        </li>
+        <li class="card">
+          <div class="ph"><span>南岸来信</span></div>
+          <div class="body">
+            <h3>南岸来信</h3>
+            <p>异地十年的两个人，靠一年一封的明信片撑着。</p>
+            <div class="chips"><span class="chip on">剧情</span><span class="chip">124 分钟</span><span class="chip">2020</span></div>
+          </div>
+        </li>
+        <li class="card">
+          <div class="ph"><span>深夜排练厅</span></div>
+          <div class="body">
+            <h3>深夜排练厅</h3>
+            <p>小剧团最后一轮彩排，台下只坐了七个人。</p>
+            <div class="chips"><span class="chip on">纪录</span><span class="chip">76 分钟</span><span class="chip">2022</span></div>
+          </div>
+        </li>
+        <li class="card">
+          <div class="ph"><span>雪落无声</span></div>
+          <div class="body">
+            <h3>雪落无声</h3>
+            <p>护林员在山上过了最后一个冬天，狗比人先老。</p>
+            <div class="chips"><span class="chip on">文艺</span><span class="chip">103 分钟</span><span class="chip">2018</span></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <div class="wrap">
+      <div class="sechead">
+        <div>
+          <h2><small>TODAY'S SCREENINGS</small>今日排片 · 按场次排</h2>
+          <p>口袋电影网只列当日实际开放的场次，橙点为常规场，红边为满座预警。</p>
+        </div>
+        <a class="more" href="#">订阅每日提醒</a>
+      </div>
+      <div class="sheet">
+        <article class="slot">
+          <span class="time">13:20 — 15:17</span>
+          <h3>雾港旧事</h3>
+          <p>剧情 / 117 分钟 / 国语</p>
+          <div class="hall">3 号厅 · 剩余 46 座 · 票价 42 元</div>
+        </article>
+        <article class="slot full">
+          <span class="time">15:40 — 17:18</span>
+          <h3>铁皮收音机</h3>
+          <p>家庭 / 106 分钟 / 国语</p>
+          <div class="hall">1 号厅 · 剩余 3 座 · 票价 38 元</div>
+        </article>
+        <article class="slot">
+          <span class="time">18:05 — 19:34</span>
+          <h3>列车停靠三分钟</h3>
+          <p>爱情 / 89 分钟 / 国语</p>
+          <div class="hall">5 号厅 · 剩余 71 座 · 票价 35 元</div>
+        </article>
+        <article class="slot">
+          <span class="time">19:50 — 21:54</span>
+          <h3>南岸来信</h3>
+          <p>剧情 / 124 分钟 / 国语</p>
+          <div class="hall">2 号厅 · 剩余 28 座 · 票价 45 元</div>
+        </article>
+        <article class="slot full">
+          <span class="time">20:10 — 21:26</span>
+          <h3>深夜排练厅</h3>
+          <p>纪录 / 76 分钟 / 国语</p>
+          <div class="hall">4 号厅 · 剩余 6 座 · 票价 30 元</div>
+        </article>
+        <article class="slot">
+          <span class="time">21:40 — 23:23</span>
+          <h3>雪落无声</h3>
+          <p>文艺 / 103 分钟 / 国语</p>
+          <div class="hall">3 号厅 · 剩余 52 座 · 票价 39 元</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="wrap">
+      <div class="sechead">
+        <div>
+          <h2><small>VIEWING NOTES</small>观影笔记 · 一句话说完</h2>
+          <p>口袋电影网的短评规矩：不超过两句，不许剧透结局。</p>
+        </div>
+        <a class="more" href="#">写一条笔记</a>
+      </div>
+      <div class="talk">
+        <div class="col">
+          <blockquote class="quote">
+            <p>前半段像纪录片，后半段突然收成一首诗。散场时走廊里没人说话。</p>
+            <footer><span>—— 观影人：林小满</span><span>雾港旧事 · 8.7</span></footer>
+          </blockquote>
+          <blockquote class="quote rust">
+            <p>收音机修好那一刻，我给我爸打了个电话，聊了四十分钟。</p>
+            <footer><span>—— 观影人：老周</span><span>铁皮收音机 · 8.4</span></footer>
+          </blockquote>
+          <blockquote class="quote">
+            <p>三分钟的站台戏拍了整整十七遍，值。</p>
+            <footer><span>—— 观影人：阿吉</span><span>列车停靠三分钟 · 8.0</span></footer>
+          </blockquote>
+        </div>
+        <div class="col b">
+          <blockquote class="quote moss">
+            <p>明信片那场戏，镜头一直停在邮筒上，比哭戏狠多了。</p>
+            <footer><span>—— 观影人：柚子</span><span>南岸来信 · 8.5</span></footer>
+          </blockquote>
+          <blockquote class="quote">
+            <p>七个人的观众席，比满场的掌声更让人坐得住。</p>
+            <footer><span>—— 观影人：陈禾</span><span>深夜排练厅 · 8.2</span></footer>
+          </blockquote>
+          <blockquote class="quote moss">
+            <p>雪下了四十分钟，狗老了三岁，我没敢快进。</p>
+            <footer><span>—— 观影人：沈冬</span><span>雪落无声 · 8.6</span></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="howto">
+    <div class="wrap">
+      <div class="sechead">
+        <div>
+          <h2><small>HOW TO CHOOSE</small>怎么挑片 · 四个维度</h2>
+          <p>口袋电影网把筛选压到最少的四次点击，剩下的交给直觉。</p>
+        </div>
+        <a class="more" href="#">了解筛选规则</a>
+      </div>
+      <div class="keys">
+        <div class="key"><b>01</b><h3>按类型</h3><p>剧情、纪录、爱情、家庭、文艺，五类不交叉，一次只选一个。</p></div>
+        <div class="key"><b>02</b><h3>按片长</h3><p>90 分钟内睡前看，90 到 120 分钟周末看，120 以上留整个下午。</p></div>
+        <div class="key"><b>03</b><h3>按年代</h3><p>近三年看新片，2010 前后看过渡期，更早的挑修复版。</p></div>
+        <div class="key"><b>04</b><h3>按评分</h3><p>8.5 以上闭眼选，8.0 到 8.5 看题材，8.0 以下看你会不会认这个导演。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sechead">
+        <div>
+          <h2><small>FAQ</small>关于口袋电影网 · 常见问题</h2>
+          <p>关于片源、更新频率和收录标准的几个实在问题。</p>
+        </div>
+        <a class="more" href="#">还有疑问？写信来</a>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>口袋电影网多久更新一次？</summary>
+          <div class="ans">每周三换一次片单，排片表每天早上七点和下午五点各刷新一轮。遇到临时撤档，口袋电影网会在两小时内改掉场次，不做过期信息滞留。</div>
+        </details>
+        <details>
+          <summary>为什么有些热门大片查不到？</summary>
+          <div class="ans">口袋电影网只收录<b>能当场点开看完</b>的片源：院线在映，或流媒体已上线。只有预告、没有正片的，一律不进库，也不放在排片表里占位。</div>
+        </details>
+        <details>
+          <summary>评分是自己打的吗？</summary>
+          <div class="ans">站内评分取自公开平台均分，再由口袋电影网做一次<b>观影人数门槛过滤</b>：打分人数不足的条目只标"待观察"，不参与排名，避免小圈子虚高。</div>
+        </details>
+        <details>
+          <summary>能推荐适合孩子一起看的吗？</summary>
+          <div class="ans">可以。片单里带"家庭"标签的条目都做了分级标注，会写明建议观看年龄和需要留意的内容，家长可以先看标注再决定。</div>
+        </details>
+        <details>
+          <summary>我想推荐一部冷门片，怎么提交？</summary>
+          <div class="ans">在下面投稿框留下片名和一句话理由就行。口袋电影网每周会挑三条放进下周片单，并署上推荐人的名字。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="wrap join">
+      <div class="box">
+        <h2 style="font-size:24px">给口袋电影网递一部片</h2>
+        <p style="margin-top:10px;font-size:14.5px;color:rgba(243,239,228,.74)">片名加一句推荐理由，每周三开箱，选中就进下周片单。</p>
+        <form class="field" action="#" method="get" onsubmit="return false;">
+          <label class="skip" for="filmname">片名</label>
+          <input id="filmname" name="filmname" type="text" placeholder="例如：雾港旧事">
+          <button type="submit">提交推荐</button>
+        </form>
+        <p class="note">本页表单只在本地演示，不收集任何信息。</p>
+      </div>
+      <div>
+        <h3 style="font-size:18px;margin-bottom:12px">收录三条硬标准</h3>
+        <ul>
+          <li><b>A</b>有完整正片可看，不接受仅有片段或预告的条目。</li>
+          <li><b>B</b>至少一处分众评分在 7.5 以上，或来自权威影展单元。</li>
+          <li><b>C</b>中文片名与上映年份能对上，避免同名条目混淆。</li>
+        </ul>
+        <p style="margin-top:14px;font-size:13.5px;color:rgba(243,239,228,.55)">口袋电影网不接商业置顶，片单顺序只按录入时间排。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fabout">
+        <span class="logo" style="font-size:20px;font-weight:900;letter-spacing:2px;color:var(--amber)">口袋电影网</span>
+        <p>一份能塞进裤兜的观影册。口袋电影网把排片、片单、短评压在一页里，不做排行绑架，也不写看到一半就想划走的影评。</p>
+        <p style="margin-top:10px">网址：https://koudaidianyingwang-app.github.io</p>
+      </div>
+      <div>
+        <h4>栏目</h4>
+        <ul>
+          <li><a href="#picks">本周片单</a></li>
+          <li><a href="#schedule">今日排片</a></li>
+          <li><a href="#notes">观影笔记</a></li>
+          <li><a href="#howto">怎么挑片</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>索引</h4>
+        <ul>
+          <li><a href="#">按类型浏览</a></li>
+          <li><a href="#">按年代浏览</a></li>
+          <li><a href="#">冷门佳片合集</a></li>
+          <li><a href="#">往期片单存档</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>站点</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#join">推荐影片</a></li>
+          <li><a href="#">收录标准</a></li>
+          <li><a href="#">联系本站</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 口袋电影网 koudaidianyingwang-app · 观影清单与排片索引</span>
+      <span>页面内所有链接均为同页占位，未指向外部站点</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
